@@ -1,7 +1,7 @@
 .spacer {
   flex: 1 1 auto;
 }
-.nav{
+.nav {
   background-color: #000000;
   color: #c7f7f9c8;
 }
@@ -18,7 +18,10 @@
   text-decoration: none;
   color: #333;
 }
-
+.admin-nav {
+  background-color: #000000;
+  color: #c7f7f9c8;
+}
 .dropdown a:hover {
   background-color: #ddd;
 }
@@ -58,12 +61,8 @@
   font-weight: bold;
 }
 
-.dropdown{
+.dropdown {
   cursor: pointer;
-  /* display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden; */
 }
 
 .search.active .search-icon {

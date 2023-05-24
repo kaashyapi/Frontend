@@ -11,6 +11,7 @@ import { ProfileService } from 'src/app/service/profile.service';
   styleUrls: ['./update-forum.component.css'],
 })
 export class UpdateForumComponent {
+  allQuestion: Question[] = [];
   public userId = localStorage.getItem('userId');
   public Editor: any = ClassicEditor;
   public maxLength: number = 2000;
@@ -19,6 +20,8 @@ export class UpdateForumComponent {
   public tags: any;
   public getTag: any;
   public queId: any;
+
+
   UpdateForumForm = new FormGroup({
     question: new FormControl('', [
       Validators.required,
@@ -46,20 +49,26 @@ export class UpdateForumComponent {
     updatedAt: new Date(),
   };
 
-  allQuestion: Question[] = [];
-  updatedAt: Date = new Date();
   constructor(
     private profileService: ProfileService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
+
   ngOnInit() {
     this.question = this.quebyid.question;
     this.questionDescribe = this.quebyid.questionDescribe;
     this.getForumsById(this.queId);
   }
+
   get valide() {
     return this.UpdateForumForm.controls;
+  }
+
+  editQuestion(quebyid: Question) {
+    this.getForumsById(this.quebyid);
+    this.question = quebyid.question;
+    this.questionDescribe = quebyid.question;
   }
 
   getForumsById(forum: Question) {
@@ -76,12 +85,6 @@ export class UpdateForumComponent {
     });
   }
 
-  editQuestion(quebyid: Question) {
-    this.getForumsById(this.quebyid);
-    this.question = quebyid.question;
-    this.questionDescribe = quebyid.question;
-    this.updatedAt = new Date();
-  }
   updateForum() {
     this.userId = this.userId;
     this.profileService.updateForums(this.quebyid).subscribe(
@@ -90,11 +93,12 @@ export class UpdateForumComponent {
         this.editQuestion(this.quebyid);
         this.getForumsById(this.quebyid);
         this.router.navigate(['/manageforums']);
-        // console.log(res);
+         console.log(res);
       },
       (err) => {
         console.log(err);
       }
     );
   }
+
 }

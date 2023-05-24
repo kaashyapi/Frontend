@@ -6,18 +6,18 @@
     style="margin-left: 16px; font-style: italic; font-family: cursive; font-weight: bold; font-size: medium;">Hello,
     {{name | titlecase}}</span>
 
-  <button routerLink="/manageforums" mat-menu-item>
+  <button routerLink="/manageforums" mat-menu-item *ngIf="userRole !== 'admin'">
     <span>Manage Forums</span>
   </button>
 
-  <button routerLink="/managebookmarks" mat-menu-item>
+  <button routerLink="/managebookmarks" mat-menu-item *ngIf="userRole !== 'admin'">
     <span>Manage Bookmarks</span>
   </button>
 
-  <button routerLink="/manageresources" mat-menu-item>
+  <button routerLink="/manageresources" mat-menu-item *ngIf="userRole !== 'admin'">
     <span>Manage Resources</span>
   </button>
 
-  <button (click)="onSignOut()" mat-menu-item>Sign
+  <button (click)="onSignOut()" mat-menu-item >Sign
     Out</button>
 </mat-menu>

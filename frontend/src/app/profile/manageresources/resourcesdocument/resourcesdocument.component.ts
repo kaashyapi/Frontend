@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Document } from 'src/app/model/document';
 import { ProfileService } from 'src/app/service/profile.service';
@@ -29,7 +28,6 @@ export class ResourcesdocumentComponent {
 
   fileName: string = '';
   createdDate: Date = new Date();
-
   docData!: {
     data: [];
   };
@@ -48,12 +46,10 @@ export class ResourcesdocumentComponent {
   getDocumentById() {
     this.ngxLoader.start();
     const id: any = localStorage.getItem('userId');
-    // console.log(id)
     this.profileservice.getDocumentById(id).subscribe(
       (files) => {
         this.files = files;
         this.ngxLoader.stop();
-        //  console.log(files);
       },
       (err) => {
         console.log(err);
@@ -61,11 +57,13 @@ export class ResourcesdocumentComponent {
       }
     );
   }
+  
   openDocumentDialog(): void {
     const dialogRef = this.dialog.open(AdddocumentComponent, {
       width: 'auto',
     });
   }
+
   ngOnInit(): void {
     this.userId = {
       firstName: '',
@@ -80,13 +78,13 @@ export class ResourcesdocumentComponent {
         this.deleteFile = res;
         this.dialogRef.close();
         window.location.reload();
-        // console.log(this.deleteFile);
       },
       (err: any) => {
         console.log(err);
       }
     );
   }
+
   deleteFile(questionId: any) {
     const dialogRef = this.dialog.open(DeleteDocumentDialogComponent, {
       width: 'auto',

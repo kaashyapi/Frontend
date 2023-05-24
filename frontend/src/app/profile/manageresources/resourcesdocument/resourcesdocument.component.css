@@ -1,19 +1,23 @@
-.noDocs{
-    text-align: center;
-    padding: 15%;
-  }
-  .openDocument:hover{
-    color: rgb(30, 59, 119);
-    font-weight: 600;
-    cursor: pointer;
+.noDocs {
+  text-align: center;
+  padding: 15%;
 }
-.body{
-  background:  #ddcfee
+
+.openDocument:hover {
+  color: rgb(30, 59, 119);
+  font-weight: 600;
+  cursor: pointer;
 }
-.button:hover{
+
+.body {
+  background: #ddcfee
+}
+
+.button:hover {
   color: rgb(183, 223, 226);
   background-color: rgb(52, 99, 153);
 }
-.documents:hover{
+
+.documents:hover {
   color: rgb(30, 59, 119);
 }

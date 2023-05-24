@@ -1,110 +1,116 @@
-
-.expandable-content {
-    overflow: hidden;
-  }
-  .questionbox {
-      margin-top: 10px;
-      border-radius: 12px;
-      box-shadow: 3px 3px 25px 0.8px rgb(177, 175, 173);
-      width: 50%;
-      margin: 50px auto auto auto;
-    }
-    .noForums{
-      text-align: center;
-      padding: 15%;
-    }
-    .userinfo {
-      display: flex;
-      align-items:center;
-      padding-bottom: 8px;
-    
-    }
-    .userinfo div {
-      align-content: center;
-    }
-    .image {
-      margin-right: 10px;
-    }
-    
-    .img {
-      width: 28px;
-    }
-    .user-date{
-      display: flex;
-      flex-direction: column;
-    }
-    .username{
-    margin-right: 15px;
-    font-weight: bold;
-    font-size:small;
-    }
-  
-    .icon {
-    margin-left: auto;
-    }
-    
-    .material-icons{
-      vertical-align: middle;
-      margin-right: 0;
-      cursor: pointer;
-    }
-    
-    .forum {
-      padding-top: 5px;
-    }
-    .question {
-      font-size:16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .answer {
-      padding-top: 5px;
-      cursor: pointer;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 100%;
-    }
-    .tags {
-      font-size: small;
-      font-weight: bold;
-      padding-top: 5px;
-    }
-    
-    .addtitle{
-      padding-left: 1vh;
-      margin-top:1vh;
-    
-  }
-   .panel{
-    box-shadow: none;
-  }
-  .back{
-    padding: 8px;
-}
-    
-.icon{
-  margin-left: auto;
+.back-button{
   cursor: pointer;
- }
- 
- .createdAt{
-  margin-right: 10px;
-  font-size: 12px;
+  border-radius: 28px;
+}
+.back{
+  padding: 8px;
+}
+.questionbox {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  box-shadow: 3px 3px 25px 0.8px rgb(33, 108, 158);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.userinfo {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  margin-left: 12px;
+  font-weight: bold;
+  padding-right: 15px;
+}
+.createdAt{
+  font-size: 14px;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 4px;
+  padding-right: 15px;
 }
 .updatedAt {
-font-size: 12px;
+  font-size: 14px;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 4px;
 }
-.example-card {
-  max-width: 65%;
-  height: fit-content;
-  margin: auto;
+.forum {
+  margin-top: 12px;
+  font-weight: 600;
+}
 
+.question {
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 12px;
 }
-.container{
-  padding: 0;
+
+.mat-icon {
+  cursor: pointer;
+  padding-right: 10px;
 }
-.date{
-  display: flex;
-  flex-direction: row;
+
+.noForums {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.noForums p {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.noForums button {
+  margin-top: 12px;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 1050px) {
+  .questionbox {
+    width: 80%;
+  }
+.username{
+  font-size: 13px;
+}
+  .userinfo {
+    flex-wrap: wrap;
+  }
+
+  .forum{
+    font-size: 10px;
+  }
+  .question{
+    font-size: 13px;
+  }
+  .createdAt,
+  .updatedAt {
+    flex-basis: 100%;
+    white-space: normal;
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .noForums {
+    text-align: center;
+    padding: 15%;
+  }
+ 
+ 
+}
+
+.noForums{
+  text-align: center;
+  padding: 15%;
 }

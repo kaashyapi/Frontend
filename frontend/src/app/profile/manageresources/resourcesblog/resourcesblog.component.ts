@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/service/profile.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteBlogDialogComponent } from 'src/app/admin/admin-manage-resources/delete-blog-dialog/delete-blog-dialog.component';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Blog } from 'src/app/model/blog';
 
-export interface tags {
-  name: string;
-}
 
 @Component({
   selector: 'app-resourcesblog',
@@ -17,22 +13,21 @@ export interface tags {
 })
 export class ResourcesblogComponent {
   blog: any[] = [];
-  updateD: any;
   allblogs: any;
 
   constructor(
-    private router: Router,
     public dialog: MatDialog,
     private profileService: ProfileService,
     private ngxLoader: NgxUiLoaderService
   ) {}
  
   
-    pro: Blog = {
+    blogs: Blog = {
       _id: '',
     title: '',
     content: '',
     createdDate: new Date(),
+    updatedDate: new Date(),
     isApproved: new Boolean(),
     userId:'',
     user:

@@ -1,19 +1,15 @@
+<div class="back">
+  <button mat-raised-button class="back-button" routerLink="/resources" routerLinkActive="active" color="primary">
+    <mat-icon style="font-size: 20px; align-items: center">arrow_back</mat-icon>
+  </button>
+</div>
 <div *ngIf="blog.length > 0">
-  <div class="noBlogs" *ngIf="blog.length === 0">
-    <div>
-      <p>You have not added any Blog!!<br />Add New Blog!!</p>
-      <button routerLink="/addblog" mat-raised-button color="primary">
-        Add Blog
-      </button>
-    </div>
-  </div>
-
-  <div style="display: flex; flex-wrap: wrap; justify-content: flex-start">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center">
     <mat-card *ngFor="let blogs of blog" class="blogbox" style="width: 350px">
       <mat-card-header>
         <div class="userdetail">
           <div style="margin-right: 6px">
-            <div class="image">
+            <div class="img">
               <ngx-avatars
                 [name]="blogs.userId.firstName + ' ' + blogs.userId.lastName"
                 size="30"
@@ -22,12 +18,24 @@
             </div>
           </div>
           <div class="username">
-            {{ blogs.userId.firstName | titlecase }}
-            {{ blogs.userId.lastName | titlecase }}
+            {{ blogs.userId?.firstName }}
+            {{ blogs.userId?.lastName }}
           </div>
-          <div class="date">{{ blogs.createdDate | date : "MMM d, y" }}</div>
         </div>
       </mat-card-header>
+      <mat-card-header>
+    
+        <div class="createdAt"*ngIf="blogs.createdDate">
+          <span style="font-weight: 500"> Created </span>
+          {{ blogs.createdDate | date : "d MMM, yy" }}
+        </div>
+        <div class="updatedAt"*ngIf="blogs.updatedDate">
+          <span style="font-weight: 500">Updated</span>
+          {{ blogs.updatedDate | date : "d MMM, yy" }}
+        </div>
+
+      </mat-card-header>
+  
       <mat-card-content>
         <mat-card-title class="blog" [innerHTML]="blogs.title">
           {{ blogs.title }}
@@ -75,4 +83,3 @@
     </button>
   </div>
 </div>
-

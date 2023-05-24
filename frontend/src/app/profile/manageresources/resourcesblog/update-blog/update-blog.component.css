@@ -2,11 +2,6 @@
     margin-left: 8px;
 }
 
-.example-chip-list {
-    width: 100%;
-    margin-top: 24px;
-}
-
 .example-button-row {
     display: table-cell;
     max-width: 600px;
@@ -48,10 +43,12 @@
     margin: 0;
     padding: 0;
 }
-.back-button{
+
+.back-button {
     cursor: pointer;
     border-radius: 28px;
 }
-.back{
+
+.back {
     padding: 8px;
 }

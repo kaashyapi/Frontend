@@ -1,9 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import {
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ProfileService } from 'src/app/service/profile.service';
@@ -20,7 +16,6 @@ export class DeleteForumDialogComponent {
     private profileService: ProfileService,
     private ngxLoader: NgxUiLoaderService,
     private snackBar: MatSnackBar,
-    private dialog: MatDialog,
     public dialogRef: MatDialogRef<DeleteForumDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}

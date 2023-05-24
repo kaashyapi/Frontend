@@ -24,21 +24,43 @@
   margin-bottom: 10px;
 }
 .left {
+  width: 100%;
+  z-index: 2;
+  padding-left: 200px;
+  padding-top: 100px;
+}
+.leftpc {
   width: 60%;
 }
-.askquebtn {
-  top: 50px;
-  right: 340px;
-  padding: 10px 0px 18px 0px;
-  position: -webkit-sticky;
-  position: sticky;
+.continuous-flow {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.matrix-rain-container {
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  z-index: 1;
 }
 
+.matrix-drop {
+  position: absolute;
+  color: #c7f7f9c8;
+  font-size: 20px;
+  width: 100%;
+  height: 400px;
+  font-family: "Courier New", Courier, monospace;
+}
 .flex {
   display: flex;
   flex-direction: row;
   position: relative;
+  z-index: 3;
 }
 
 .blogs {
@@ -74,34 +96,18 @@
   overflow: hidden;
 }
 
-@keyframes fall {
-  0% {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(500px);
-    opacity: 0;
-  }
-}
-
 .questionbox {
-  /* margin-top: 10px; */
-  border-top: 1px solid rgb(199, 190, 190);
-  width: 700px;
-  height: fit-content;
-  /* border-radius: 12px; */
-  /* box-shadow: 3px 3px 25px 0.8px rgb(177, 175, 173); */
+  margin-right: 24px;
+  margin-bottom: 30px;
+  max-height: 60%;
+  overflow: hidden;
+  box-shadow: 3px 3px 25px 0.8px rgb(177, 175, 173);
+  background: #e4f2f3;
+  text-align: start;
 }
 
 .mat-mdc-card {
-  border-radius: 0px;
+  border-radius: 12px;
 }
 
 .userinfo {
@@ -167,16 +173,14 @@
 
 aside {
   width: 27%;
-  /* padding-left: 78px; */
 }
 
 .pagination {
   padding-top: 14px;
   justify-content: center;
 }
-.page-item{
+.page-item {
   cursor: pointer;
-  /* background-color: #008db4; */
 }
 
 .page-item.active .page-link {
@@ -184,7 +188,7 @@ aside {
   border-color: #008db4;
 }
 
-.page-link{
+.page-link {
   color: #008db4;
 }
 .cont {
@@ -195,4 +199,194 @@ aside {
   background-color: black;
   color: #00b8d4;
   font-family: monospace;
+}
+@media (max-width: 480px) {
+  .content {
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  .left {
+    width: 100%;
+    z-index: 2;
+    padding-left: 60px;
+    padding-top: 40px;
+  }
+  .matrix-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .matrix-drop {
+    position: absolute;
+    color: #c7f7f9c8;
+    font-size: 20px;
+    width: 100%;
+    height: 300px;
+    font-family: "Courier New", Courier, monospace;
+  }
+  .flex {
+    flex-direction: column-reverse;
+    z-index: 3;
+  }
+  .blogs {
+    width: 100%;
+    padding: 10px;
+  }
+  aside {
+    width: 100%;
+    padding: 22px;
+  }
+  .questionbox {
+    margin-right: 24px;
+    margin-bottom: 40px;
+    max-width: 300px;
+    flex-direction: column;
+    margin-left: 20px;
+    max-height: 60%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 3px 3px 25px 0.8px rgb(177, 175, 173);
+    background: #e4f2f3;
+    text-align: start;
+  }
+  .matcard {
+    margin: 0;
+  }
+  .hr {
+    display: none;
+  }
+}
+
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+  .content {
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+  }
+  .left {
+    width: 100%;
+    z-index: 2;
+    padding-left: 100px;
+    padding-top: 50px;
+  }
+  .matrix-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .matrix-drop {
+    position: absolute;
+    color: #c7f7f9c8;
+    font-size: 20px;
+    width: 100%;
+    height: 300px;
+    font-family: "Courier New", Courier, monospace;
+  }
+  .flex {
+    flex-direction: column-reverse;
+    z-index: 3;
+  }
+  .blogs {
+    width: 100%;
+    padding: 10px;
+  }
+  aside {
+    width: 100%;
+    padding: 22px;
+  }
+  .questionbox {
+    margin-right: 24px;
+    margin-bottom: 40px;
+    max-width: 450px;
+    flex-direction: column;
+    max-height: 60%;
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 3px 3px 25px 0.8px rgb(177, 175, 173);
+    background: #e4f2f3;
+    text-align: start;
+  }
+  .matcard {
+    margin: 0;
+  }
+  .hr {
+    display: none;
+  }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+  }
+  .left {
+    width: 100%;
+    z-index: 2;
+    padding-left: 150px;
+    padding-top: 80px;
+  }
+  .matrix-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .matrix-drop {
+    position: absolute;
+    color: #c7f7f9c8;
+    font-size: 20px;
+    width: 100%;
+    height: 300px;
+    font-family: "Courier New", Courier, monospace;
+  }
+  .flex {
+    flex-direction: column-reverse;
+    z-index: 3;
+  }
+  .blogs {
+    width: 100%;
+    padding: 10px;
+  }
+  aside {
+    width: 100%;
+    padding: 22px;
+  }
+  .questionbox {
+    margin-right: 24px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    flex-direction: column;
+    max-height: 60%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 3px 3px 25px 0.8px rgb(177, 175, 173);
+    background: #e4f2f3;
+    text-align: start;
+  }
+  .matcard {
+    margin: 0;
+  }
+  .hr {
+    display: none;
+  }
 }

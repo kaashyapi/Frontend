@@ -4,7 +4,7 @@ export interface Blog {
   title: string;
   content: string;
   createdDate: Date;
-  //updatedDate:Date;
+  updatedDate:Date;
   isApproved: Boolean;
   userId: string;
   user: {

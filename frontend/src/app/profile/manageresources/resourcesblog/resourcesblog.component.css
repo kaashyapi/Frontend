@@ -1,3 +1,7 @@
+.noBlogs {
+  text-align: center;
+  padding: 15%;
+}
 .userdetail {
   display: flex;
   flex-wrap: nowrap;

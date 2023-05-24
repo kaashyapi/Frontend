@@ -2,18 +2,20 @@
     <button mat-icon-button (click)="onToggleSidenav()" *ngIf="isMobile">
         <mat-icon>menu</mat-icon>
     </button>
+    <span><img src="../../../assets/images/navbarLogo.png" width="40px"></span>
     <span style="font-size: large;"><b>TechForum</b></span>
     <button mat-button *ngIf="!isMobile" routerLink="/" routerLinkActive="active"
         style="margin-left: 4px;">Dashboard</button>
     <button mat-button *ngIf="!isMobile" routerLink="resources" routerLinkActive="active">Resources</button>
     <span class="spacer"></span>
-    <div class="search" [class.active]='isSearchActive' style="margin-right: 8px;" *ngIf="!isMobile" >
+    <div class="search" [class.active]='isSearchActive' style="margin-right: 8px;" *ngIf="!isMobile">
         <input style="height: 35px;" type="text" placeholder="Search..." [(ngModel)]="question"
             (input)="searchQuestion()">
-            <button class="search-icon" mat-icon-button matSuffix
+        <button class="search-icon" mat-icon-button matSuffix
             (click)="isSearchActive = !isSearchActive"><mat-icon>search</mat-icon></button>
         <div *ngIf="searchQue != null && searchQue.length > 0" class="dropdown">
-            <a class="searchlist" *ngFor="let result of searchQue" (click)="selectResult(result._id, result)">{{ result.question }}</a>
+            <a class="searchlist" *ngFor="let result of searchQue" (click)="selectResult(result._id, result)">{{
+                result.question }}</a>
         </div>
     </div>
 
@@ -24,7 +26,7 @@
     </div>
 </mat-toolbar>
 
-<mat-toolbar color="primary" *ngIf="userRole === 'admin'">
+<mat-toolbar class="admin-nav" *ngIf="userRole === 'admin'">
     <button mat-icon-button (click)="onAToggleSidenav()" *ngIf="isMobile">
         <mat-icon>menu</mat-icon>
     </button>

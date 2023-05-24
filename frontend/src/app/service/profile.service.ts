@@ -18,7 +18,6 @@ export class ProfileService {
     );
   }
 
-  // get a specific blog
   getForumById(id: string): Observable<Question> {
     return this.http.get<Question>(`${this.baseUrl}/users/question/` + id).pipe(
       map((response: any) => {
@@ -41,7 +40,6 @@ export class ProfileService {
     return this.http.get<Blog>(`${this.baseUrl}/users/blogbyuser/${id}`);
   }
 
-  // get a specific blog
   getBlogById(id: string): Observable<Blog> {
     return this.http.get<Blog>(`${this.baseUrl}/users/blog/` + id).pipe(
       map((response: any) => {

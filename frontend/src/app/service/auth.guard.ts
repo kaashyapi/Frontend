@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
-  Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { AuthService } from './auth.service';
 import { SigninSignupComponent } from '../layout/header/signin-signup/signin-signup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
@@ -15,12 +13,10 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
   constructor(
-    private authService: AuthService,
-    private router: Router,
     public dialog: MatDialog
   ) {}
   openSignInDialog(): void {
-    const dialogRef = this.dialog.open(SigninSignupComponent, {
+    this.dialog.open(SigninSignupComponent, {
       width: 'auto',
     });
   }

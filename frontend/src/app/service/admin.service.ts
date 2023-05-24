@@ -23,7 +23,6 @@ export class AdminService {
     return this.http.delete(`${this.baseUrl}/admin/deleteuser/` + id);
   }
 
-
   addTag(tag: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/admin/addtag`, tag);
   }
@@ -35,21 +34,20 @@ export class AdminService {
   deleteTag(id: any) {
     return this.http.delete(`${this.baseUrl}/admin/deletetag/` + id);
   }
-// forum
-getQuestions() {
-  return this.http.get<any>(`${this.baseUrl}/users/question`);
-}
 
-getAnswerById(id: any): Observable<any> {
-  return this.http.get<any>(`${this.baseUrl}/users/answer/` + id);
-}
+  getQuestions() {
+    return this.http.get<any>(`${this.baseUrl}/users/question`);
+  }
 
-deleteQuestion(id:any) {
-  return this.http.delete<any>(`${this.baseUrl}/users/question/`+id);
-}
+  getAnswerById(id: any): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/users/answer/` + id);
+  }
 
-deleteAnswer(id:any) {
-  return this.http.delete<any>(`${this.baseUrl}/users/answer/`+id);
-}
+  deleteQuestion(id: any) {
+    return this.http.delete<any>(`${this.baseUrl}/users/question/` + id);
+  }
 
+  deleteAnswer(id: any) {
+    return this.http.delete<any>(`${this.baseUrl}/users/answer/` + id);
+  }
 }

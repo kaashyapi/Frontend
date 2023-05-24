@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, map, of } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { commonSnackBarConfig } from './snackbar-config.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { SigninSignupComponent } from '../layout/header/signin-signup/signin-signup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from 'src/environments/environment.prod';
@@ -13,11 +11,7 @@ export class AuthService {
   private baseUrl = environment.baseUrl;
   public isSignedIn: boolean = false;
   authChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
-  constructor(
-    private http: HttpClient,
-    private snackBar: MatSnackBar,
-    private dialog: MatDialog
-  ) {}
+  constructor(private http: HttpClient, private dialog: MatDialog) {}
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
 
@@ -37,12 +31,14 @@ export class AuthService {
     return this.isAuthenticatedSubject.asObservable();
   }
   openSignInDialog(): void {
-    const dialogRef = this.dialog.open(SigninSignupComponent, {
+    this.dialog.open(SigninSignupComponent, {
       width: 'auto',
     });
   }
   signIn(payload: { email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/users/signin`, payload, {withCredentials: true});
+    return this.http.post(`${this.baseUrl}/users/signin`, payload, {
+      withCredentials: true,
+    });
   }
 
   signUp(user: {

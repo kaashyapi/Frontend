@@ -5,3 +5,4 @@ export const commonSnackBarConfig: MatSnackBarConfig = {
   horizontalPosition: 'center',
   duration: 3000,
 };
+export class SnackbarConfigService {}

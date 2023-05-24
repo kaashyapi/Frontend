@@ -1,0 +1,9 @@
+{
+  "extends": ["eslint:recommended", "plugin:@angular-eslint/recommended"],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  }
+}

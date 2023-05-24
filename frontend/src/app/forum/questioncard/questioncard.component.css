@@ -87,7 +87,7 @@
 }
 
 .matcard {
-  margin-right: 48px;
+  margin: 0 20px;
 }
 .continuous-flow {
   position: relative;
@@ -97,7 +97,6 @@
 }
 
 .questionbox {
-  margin-right: 24px;
   margin-bottom: 30px;
   max-height: 60%;
   overflow: hidden;
@@ -244,7 +243,6 @@ aside {
     padding: 22px;
   }
   .questionbox {
-    margin-right: 24px;
     margin-bottom: 40px;
     max-width: 300px;
     flex-direction: column;
@@ -308,7 +306,6 @@ aside {
     padding: 22px;
   }
   .questionbox {
-    margin-right: 24px;
     margin-bottom: 40px;
     max-width: 450px;
     flex-direction: column;
@@ -372,7 +369,6 @@ aside {
     padding: 22px;
   }
   .questionbox {
-    margin-right: 24px;
     margin-bottom: 40px;
     max-width: 600px;
     flex-direction: column;
@@ -386,7 +382,5 @@ aside {
   .matcard {
     margin: 0;
   }
-  .hr {
-    display: none;
-  }
+
 }

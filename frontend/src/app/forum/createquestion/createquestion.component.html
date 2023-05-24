@@ -1,3 +1,8 @@
+<div class="back">
+  <button mat-raised-button class="back-button" routerLink="/questiondash" routerLinkActive="active" color="primary">
+    <mat-icon style="font-size: 20px; align-items: center">arrow_back</mat-icon>
+  </button>
+</div>
 <div class="container">
   <h3 style="margin-bottom: 16px">Ask a Public Question</h3>
   <form [formGroup]="CreateQuestionForm" (ngSubmit)="questionSubmit()" style="background-color: white">

@@ -1,3 +1,10 @@
+.back-button {
+  cursor: pointer;
+  border-radius: 28px;
+}
+.back {
+  padding: 8px;
+}
 .container mat-form-field + mat-form-field {
   margin-left: 8px;
 }

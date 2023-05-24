@@ -1,3 +1,10 @@
+.back-button {
+  cursor: pointer;
+  border-radius: 28px;
+}
+.back {
+  padding: 8px;
+}
 .que-ans-card {
   width: 65%;
   height: fit-content;

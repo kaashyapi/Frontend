@@ -7,8 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { DeleteBlogDialogComponent } from './delete-blog-dialog/delete-blog-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { AdddocumentComponent } from 'src/app/resources/adddocument/adddocument.component';
-import { SpecificBlog } from 'src/app/model/specific-blog';
+
 
 @Component({
   selector: 'app-admin-manage-resources',
@@ -21,7 +20,7 @@ export class AdminManageResourcesComponent {
     title: '',
     content: '',
     createdDate: new Date(),   
-    // updatedDate : new Date(),
+     updatedDate : new Date(),
     isApproved: new Boolean(),
     userId: '',
     user:{

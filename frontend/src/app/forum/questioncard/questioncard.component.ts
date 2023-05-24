@@ -274,23 +274,6 @@ export class QuestioncardComponent implements OnInit, AfterViewInit {
       }
     }, 7);
   }
-  isColliding(top: number, left: number, width: number): boolean {
-    const elements =
-      this.continuousFlow.nativeElement.querySelectorAll('.line > div');
-    for (let i = 0; i < elements.length; i++) {
-      const element = elements[i] as HTMLElement;
-      const rect = element.getBoundingClientRect();
-      if (
-        top >= rect.top - this.lineHeight &&
-        top <= rect.bottom &&
-        left >= rect.left - width &&
-        left <= rect.right
-      ) {
-        return true;
-      }
-    }
-    return false;
-  }
   addBookmark(userId: any, questionId: any) {
     this.forum
       .addRemoveBookmark({

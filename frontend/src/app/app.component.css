@@ -11,6 +11,7 @@ mat-sidenav {
 mat-sidenav {
   width: 250px;
   font-weight: bold;
+  background-color: #00b8d4;
 }
 
 main {

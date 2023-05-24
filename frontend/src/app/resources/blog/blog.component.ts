@@ -15,7 +15,7 @@ export class BlogComponent {
     title: '',
     content: '',
     createdDate: new Date(), 
-   // updatedDate: new Date(),
+   updatedDate: new Date(),
     isApproved: new Boolean(),
     userId: '',
     user:{

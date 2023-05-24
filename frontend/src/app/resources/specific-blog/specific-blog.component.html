@@ -1,26 +1,47 @@
 <div class="back" *ngIf="userRole !== 'admin'">
-  <button mat-raised-button class="back-button" routerLink="/resources" routerLinkActive="active" color="primary">
+  <button
+    mat-raised-button
+    class="back-button"
+    routerLink="/resources"
+    routerLinkActive="active"
+    color="primary"
+  >
     <mat-icon style="font-size: 20px; align-items: center">arrow_back</mat-icon>
   </button>
 </div>
 
 <div class="back" *ngIf="userRole === 'admin'">
-  <button mat-raised-button class="back-button" routerLink="/admin/manageresourcs" routerLinkActive="active"
-    color="primary">
+  <button
+    mat-raised-button
+    class="back-button"
+    routerLink="/admin/manageresourcs"
+    routerLinkActive="active"
+    color="primary"
+  >
     <mat-icon style="font-size: 20px; align-items: center">arrow_back</mat-icon>
   </button>
 </div>
 <div class="title-container">
-  <span [innerHTML]="blogs.title" class="title">
-    {{ blogs.title }}
-  </span>
-  <span class="avatar">
-    <ngx-avatars [name]="blogs.userId.firstName + ' ' + blogs.userId.lastName" size="25" matSuffix>
-    </ngx-avatars></span>
-  {{ blogs.userId.firstName | titlecase }}
-  {{ blogs.userId.lastName | titlecase }}
-
-  {{ blogs.createdDate | date : "MMM d, y" }}
+  <span [innerHTML]="blogs.title" class="title"> {{ blogs.title }} </span><br />
+</div>
+<div class="userinfo">
+  <div class="image">
+    <ngx-avatars
+      [name]="blogs.userId.firstName + ' ' + blogs.userId.lastName"
+      size="25"
+      matSuffix
+    >
+    </ngx-avatars>
+  </div>
+  <div class="user-date">
+    <div class="username">
+      {{ blogs.userId.firstName | titlecase }}
+      {{ blogs.userId.lastName | titlecase }}
+    </div>
+    <div class="date">
+      {{ blogs.createdDate | date : "MMM d, y" }}
+    </div>
+  </div>
 </div>
 <div class="content" [innerHTML]="blogs.content">
   {{ blogs.content }}

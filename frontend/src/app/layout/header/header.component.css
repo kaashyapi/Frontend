@@ -88,3 +88,9 @@
 button {
   font-size: medium;
 }
+@media screen and (max-width: 480px) {
+  button {
+    padding: 0;
+    font-size: small;
+  }
+}

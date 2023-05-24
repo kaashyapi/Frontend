@@ -121,9 +121,24 @@ export class QuestioncardComponent implements OnInit, AfterViewInit {
   rows: number[];
   speed = 10;
   intervalId: any;
+  drops: any[] = [];
+  symbolSet: string[] = ['T', 'E', 'C', 'H', 'F', 'O', 'R', 'U', 'M'];
+  canvasHeight: number;
+  canvasWidth: number;
+  dropSpeedMin: number = 6;
+  dropSpeedMax: number = 10;
+  dropWidth: number = 10;
+  dropHeight: number = 20;
   ngOnInit() {
     this.getQuestion();
     this.getBookmarkByUserId();
+    this.canvasHeight = window.innerHeight;
+    this.canvasWidth = window.innerWidth;
+
+    this.initializeDrops();
+
+    // Start the animation loop
+    this.animate();
 
     this.isUserAuthenticated = this.authService.isUserAuthenticated();
     this.authService.authChanged.subscribe((authStatus) => {
@@ -154,6 +169,37 @@ export class QuestioncardComponent implements OnInit, AfterViewInit {
     }
   }
 
+  initializeDrops() {
+    const numDrops = Math.floor(this.canvasWidth / this.dropWidth);
+    for (let i = 0; i < numDrops; i++) {
+      const drop = {
+        top: -Math.floor(Math.random() * this.canvasHeight),
+        left: i * this.dropWidth,
+        speed:
+          Math.floor(
+            Math.random() * (this.dropSpeedMax - this.dropSpeedMin + 1)
+          ) + this.dropSpeedMin,
+        opacity: Math.random().toFixed(1),
+        symbol:
+          this.symbolSet[Math.floor(Math.random() * this.symbolSet.length)],
+      };
+      this.drops.push(drop);
+    }
+  }
+
+  animate() {
+    setInterval(() => {
+      for (let drop of this.drops) {
+        drop.top += drop.speed;
+        if (drop.top > this.canvasHeight) {
+          drop.top = -this.dropHeight;
+          drop.symbol =
+            this.symbolSet[Math.floor(Math.random() * this.symbolSet.length)];
+        }
+      }
+    }, 50); // Change the interval value to adjust the animation speed (in milliseconds)
+  }
+
   ngAfterViewInit() {
     this.columns = Math.floor(
       this.continuousFlow.nativeElement.offsetWidth / this.columnWidth
@@ -172,7 +218,7 @@ export class QuestioncardComponent implements OnInit, AfterViewInit {
       });
   }
   startFallingWords() {
-    clearInterval(this.intervalId); 
+    clearInterval(this.intervalId);
 
     this.intervalId = setInterval(() => {
       this.addRow();
@@ -212,7 +258,7 @@ export class QuestioncardComponent implements OnInit, AfterViewInit {
     lineDiv.style.top = `${-this.lineHeight}px`;
     this.continuousFlow.nativeElement.appendChild(lineDiv);
 
-    const animationTime = 130; 
+    const animationTime = 130;
     const distance =
       this.continuousFlow.nativeElement.offsetHeight + this.lineHeight;
     const speed = distance / animationTime;
@@ -255,7 +301,7 @@ export class QuestioncardComponent implements OnInit, AfterViewInit {
         next: (res) => {
           this.allBookmarks.push(res);
           this.getBookmarkByUserId();
-          console.log("Add Bookmark: ",res);
+          console.log('Add Bookmark: ', res);
         },
         error: (err) => {
           console.log('Error while sending the data ' + err);
@@ -272,7 +318,7 @@ export class QuestioncardComponent implements OnInit, AfterViewInit {
   toggleBookmark(questionId: string) {
     if (!this.userId) {
       this.openSignInDialog();
-    } else {   
+    } else {
       this.isBookmarked(questionId);
       this.addBookmark(this.userId, questionId);
       this.getBookmarkByUserId();

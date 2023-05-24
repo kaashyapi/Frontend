@@ -10,7 +10,7 @@ mat-sidenav {
 
 mat-sidenav {
   width: 250px;
-  background-color: #9aeffc;
+  background-color: rgba(128, 194, 196, 1);
   opacity: 0.8;
 }
 

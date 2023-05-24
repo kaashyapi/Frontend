@@ -1,5 +1,6 @@
 import { Component, Sanitizer } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { AdminService } from 'src/app/service/admin.service';
 import { DeleteDialogComponent } from 'src/app/admin/admin-manage-users/delete-dialog/delete-dialog.component'
@@ -33,7 +34,7 @@ export class AdminManageUsersComponent {
   deleteUserDialog(userId:any): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: 'auto',
-      data: userId,
+      data: {userId:userId},
       disableClose: true,
     });
   }

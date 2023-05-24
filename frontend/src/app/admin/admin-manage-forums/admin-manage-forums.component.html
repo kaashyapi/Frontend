@@ -1,9 +1,7 @@
 <div class="body">
   <mat-tab-group>
     <mat-tab>
-      <ng-template mat-tab-label>
-        Questions
-      </ng-template>
+      <ng-template mat-tab-label> Questions </ng-template>
       <ng-template matTabContent>
         <table class="table" style="width: 100%">
           <thead>
@@ -18,6 +16,7 @@
             <tr *ngFor="let question of allQuestions">
               <td>{{ question._id }}</td>
               <td
+                (click)="openDialog()"
                 style="
                   white-space: nowrap;
                   overflow: hidden;
@@ -32,11 +31,7 @@
                 {{ question.userId.lastName | titlecase }}
               </td>
               <td>
-                <mat-icon
-                  style="cursor: pointer"
-                  (click)="deleteQuestion(question._id)"
-                  >delete</mat-icon
-                >
+                <mat-icon style="cursor: pointer" (click)="deleteQuestionDialog(question._id)">delete</mat-icon>
               </td>
             </tr>
           </tbody>
@@ -44,9 +39,7 @@
       </ng-template>
     </mat-tab>
     <mat-tab>
-      <ng-template mat-tab-label>
-        Answers
-      </ng-template>
+      <ng-template mat-tab-label> Answers </ng-template>
       <ng-template matTabContent>
         <table class="table">
           <thead>
@@ -64,10 +57,10 @@
               <td>
                 <ul class="space">
                   <li
-                    style="list-style-type: none; margin-bottom: 8px;"
+                    style="list-style-type: none; margin-bottom: 8px"
                     *ngFor="let answer of qa.answer"
                   >
-                    {{ answer._id }}
+                    {{ answer._id}}
                   </li>
                 </ul>
               </td>
@@ -90,7 +83,7 @@
               <td>
                 <ul class="space">
                   <li
-                    style="list-style-type: none; margin-bottom: 8px;"
+                    style="list-style-type: none; margin-bottom: 8px"
                     *ngFor="let answer of qa.answer"
                   >
                     {{ answer.userId.firstName }} {{ answer.userId.lastName }}
@@ -99,17 +92,15 @@
               </td>
               <td>
                 <ul class="space">
-                  <li style="list-style-type: none" *ngFor="let answer of qa.answer"> 
-                    <mat-icon
-                      style="cursor: pointer"
-                      (click)="deleteAnswer(answer._id)"
-                      >delete</mat-icon
-                    >
+                  <li
+                    style="list-style-type: none"
+                    *ngFor="let answer of qa.answer"
+                  >
+                   <mat-icon style="cursor: pointer" (click)="deleteAnswerDialog(answer._id)">delete</mat-icon>
                   </li>
                 </ul>
               </td>
             </tr>
-              
           </tbody>
         </table>
       </ng-template>

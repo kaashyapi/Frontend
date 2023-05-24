@@ -37,10 +37,12 @@ export class AddTagComponent {
       (res) => {
         this.dialogRef.close();
         console.log(res);
+        this.ngxLoader.stop();
         window.location.reload();
       },
       (err) => {
         console.log(err);
+        this.ngxLoader.stop();
       }
     );
   }

@@ -92,5 +92,6 @@ button {
   button {
     padding: 0;
     font-size: small;
+    text-align: center;
   }
 }

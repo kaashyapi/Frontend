@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { commonSnackBarConfig } from 'src/app/service/snackbar-config.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
   selector: 'app-signin-signup',
   templateUrl: './signin-signup.component.html',
@@ -24,19 +24,20 @@ export class SigninSignupComponent implements OnInit {
     private authService: AuthService,
     public dialogRef: MatDialogRef<SigninSignupComponent>,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private ngxLoader: NgxUiLoaderService
   ) {
     this.breakpointObserver.observe(Breakpoints.Handset).subscribe((result) => {
       this.isMobile = result.matches;
     });
   }
   openSignInDialog(): void {
-    const dialogRef = this.dialog.open(SigninSignupComponent, {
+    this.dialog.open(SigninSignupComponent, {
       width: 'auto',
     });
   }
   openForgotPasswordDialog(): void {
-    const dialogRef = this.dialog.open(ForgotpasswordComponent, {
+    this.dialog.open(ForgotpasswordComponent, {
       width: 'auto',
     });
   }
@@ -87,7 +88,7 @@ export class SigninSignupComponent implements OnInit {
           ],
         ],
         confirmPassword: ['', [Validators.required]],
-      },
+      }
       // { validator: this.checkPasswords }
     );
   }
@@ -102,6 +103,7 @@ export class SigninSignupComponent implements OnInit {
   }
   onSignIn(): void {
     if (this.signInForm.valid) {
+      this.ngxLoader.start();
       this.authService.signIn(this.signInForm.value).subscribe(
         (response) => {
           const expirationTime = new Date(Date.now() + 12 * 60 * 60 * 1000);
@@ -111,13 +113,14 @@ export class SigninSignupComponent implements OnInit {
             expirationTime.toISOString()
           );
           localStorage.setItem('name', response.data.name);
-          console.log(response);
+          this.ngxLoader.stop();
           this.snackBar.open(response.message, 'Dismiss', commonSnackBarConfig);
           this.dialogRef.close();
           this.authService.isSignedIn = true;
           this.authService.authChanged.emit(true);
         },
         (error) => {
+          this.ngxLoader.stop();
           this.snackBar.open(
             error.error.message,
             'Dismiss',
@@ -132,9 +135,10 @@ export class SigninSignupComponent implements OnInit {
 
   onSignUp(): void {
     if (this.signUpForm.valid) {
+      this.ngxLoader.start();
       this.authService.signUp(this.signUpForm.value).subscribe(
         (response) => {
-          console.log(response);
+          this.ngxLoader.stop();
           this.snackBar.open(
             response.message + ' Please Sign In to continue',
             'Dismiss',
@@ -143,6 +147,7 @@ export class SigninSignupComponent implements OnInit {
           this.selectedTabIndex = 0;
         },
         (error) => {
+          this.ngxLoader.stop();
           this.snackBar.open(
             error.error.message,
             'Dismiss',
@@ -151,7 +156,7 @@ export class SigninSignupComponent implements OnInit {
         }
       );
     } else {
-     return this.signUpForm.markAllAsTouched();
+      return this.signUpForm.markAllAsTouched();
     }
   }
 

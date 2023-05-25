@@ -88,7 +88,7 @@ export class SigninSignupComponent implements OnInit {
         ],
         confirmPassword: ['', [Validators.required]],
       },
-      { validator: this.checkPasswords }
+      // { validator: this.checkPasswords }
     );
   }
   checkPasswords(group: FormGroup) {
@@ -151,11 +151,7 @@ export class SigninSignupComponent implements OnInit {
         }
       );
     } else {
-      this.snackBar.open(
-        'Password not matched',
-        'Dismiss',
-        commonSnackBarConfig
-      );
+     return this.signUpForm.markAllAsTouched();
     }
   }
 

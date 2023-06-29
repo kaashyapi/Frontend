@@ -48,7 +48,7 @@ export class AuthService {
     // password: string;
   }): Observable<any> {
     return this.http.post(
-      `https://hs5oadd8nk.execute-api.ap-south-1.amazonaws.com/signUp`,
+      `https://1s3nlg4nu4.execute-api.ap-south-1.amazonaws.com/dev/signup`,
       body
     );
   }

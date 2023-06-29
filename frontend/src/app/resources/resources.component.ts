@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-resources',
   templateUrl: './resources.component.html',
-  styleUrls: ['./resources.component.css']
+  styleUrls: ['./resources.component.css'],
 })
-export class ResourcesComponent {
+export class ResourcesComponent implements OnInit {
   color = 'black';
-  constructor(private router: Router) {}
+  constructor() {}
   ngOnInit(): void {}
 }

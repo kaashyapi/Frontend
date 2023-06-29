@@ -41,13 +41,16 @@ export class AuthService {
     });
   }
 
-  signUp(user: {
+  signUp(body: {
     firstName: string;
     lastName: string;
     email: string;
-    password: string;
+    // password: string;
   }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/signup`, user);
+    return this.http.post(
+      `https://hs5oadd8nk.execute-api.ap-south-1.amazonaws.com/signUp`,
+      body
+    );
   }
 
   forgotPassword(emailId: string): Observable<any> {

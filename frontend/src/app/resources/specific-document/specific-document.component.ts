@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DocumentService } from 'src/app/service/document.service';
 import { Document } from 'src/app/model/document';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
@@ -9,7 +9,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   templateUrl: './specific-document.component.html',
   styleUrls: ['./specific-document.component.css'],
 })
-export class SpecificDocumentComponent {
+export class SpecificDocumentComponent implements OnInit {
   docs: Document = {
     _id: '',
     fileName: '',
@@ -18,11 +18,10 @@ export class SpecificDocumentComponent {
     docData: {
       data: [],
     },
-    userId:
-  {
-    firstName: '',
-    lastName: ''
-   }
+    userId: {
+      firstName: '',
+      lastName: '',
+    },
   };
 
   fileName: string = '';
@@ -37,17 +36,12 @@ export class SpecificDocumentComponent {
 
   public pdfSrc: string = '';
 
-  displayedColumns: string[] = [
-    'fileName',
-    'Owner',
-    'createdDate',
-  ];
+  displayedColumns: string[] = ['fileName', 'Owner', 'createdDate'];
 
   constructor(
-    private router: Router,
     private documentService: DocumentService,
     private activatedRoute: ActivatedRoute,
-    private ngxLoader: NgxUiLoaderService,
+    private ngxLoader: NgxUiLoaderService
   ) {}
 
   ngOnInit(): void {

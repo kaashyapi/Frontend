@@ -10,7 +10,7 @@ import { AllDocument } from 'src/app/model/all-document';
   templateUrl: './document.component.html',
   styleUrls: ['./document.component.css'],
 })
-export class DocumentComponent {
+export class DocumentComponent implements OnInit{
   docs: AllDocument = {
     _id: '',
     fileName: '',

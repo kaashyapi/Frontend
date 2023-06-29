@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Document } from '../model/document';
@@ -28,18 +28,29 @@ export class DocumentService {
 
   //get all documents
   getAllDoc(pageNumber: number, pageSize: number): Observable<AllDocument[]> {
-    return this.http.get<AllDocument[]>(`${this.baseUrl}/users/document?pageNumber=${pageNumber}&pageSize=${pageSize}`).pipe(
-      map((response: any) => {
-        return response;
-      })
-    );
+    return this.http
+      .get<AllDocument[]>(
+        `${this.baseUrl}/users/document?pageNumber=${pageNumber}&pageSize=${pageSize}`
+      )
+      .pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
   }
-  getAllAdminDoc(pageNumber: number, pageSize: number): Observable<AllDocument[]> {
-    return this.http.get<AllDocument[]>(`${this.baseUrl}/admin/document?pageNumber=${pageNumber}&pageSize=${pageSize}`).pipe(
-      map((response: any) => {
-        return response;
-      })
-    );
+  getAllAdminDoc(
+    pageNumber: number,
+    pageSize: number
+  ): Observable<AllDocument[]> {
+    return this.http
+      .get<AllDocument[]>(
+        `${this.baseUrl}/admin/document?pageNumber=${pageNumber}&pageSize=${pageSize}`
+      )
+      .pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
   }
 
   // get a specific blog

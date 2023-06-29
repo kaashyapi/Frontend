@@ -78,7 +78,7 @@ export class SigninSignupComponent implements OnInit {
             Validators.pattern("([A-Z][a-z]*)([\\s\\'-])*"),
           ],
         ],
-        emailId: ['', [Validators.required, Validators.pattern(regex)]],
+        email: ['', [Validators.required, Validators.pattern(regex)]],
         // password: [
         //   '',
         //   [

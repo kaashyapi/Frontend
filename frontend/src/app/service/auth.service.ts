@@ -46,14 +46,11 @@ export class AuthService {
     lastName: string;
     email: string;
   }): Observable<any> {
-    return this.http.post(
-      `${this.baseUrl}/signup`,
-      body
-    );
+    return this.http.post(`${this.baseUrl}/signup`, body);
   }
 
-  forgotPassword(email: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/users/forgotpassword`, email);
+  forgotPassword(body: { email: string }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/users/forgotpassword`, body);
   }
   resetPassword(data: any): Observable<any> {
     return this.http.post(

@@ -59,48 +59,34 @@ export class SigninSignupComponent implements OnInit {
     const regex = new RegExp(
       "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
     );
-    this.signUpForm = this.fb.group(
-      {
-        firstName: [
-          '',
-          [
-            Validators.required,
-            Validators.pattern("([A-Z][a-z]*)([\\s\\'-])*"),
-          ],
-        ],
-        lastName: [
-          '',
-          [
-            Validators.required,
-            Validators.pattern("([A-Z][a-z]*)([\\s\\'-])*"),
-          ],
-        ],
-        email: ['', [Validators.required, Validators.pattern(regex)]],
-      }
-    );
+    this.signUpForm = this.fb.group({
+      firstName: [
+        '',
+        [Validators.required, Validators.pattern("([A-Z][a-z]*)([\\s\\'-])*")],
+      ],
+      lastName: [
+        '',
+        [Validators.required, Validators.pattern("([A-Z][a-z]*)([\\s\\'-])*")],
+      ],
+      email: ['', [Validators.required, Validators.pattern(regex)]],
+    });
   }
-  checkPasswords(group: FormGroup) {
-    const password = group.get('password');
-    const confirmPassword = group.get('confirmPassword');
-    return password &&
-      confirmPassword &&
-      password.value === confirmPassword.value
-      ? null
-      : { passwordMismatch: true };
-  }
+
   onSignIn(): void {
     if (this.signInForm.valid) {
       this.ngxLoader.start();
       this.authService.signIn(this.signInForm.value).subscribe(
         (response) => {
+          this.ngxLoader.stop();
+          // const userId = response.
           const expirationTime = new Date(Date.now() + 12 * 60 * 60 * 1000);
-          localStorage.setItem('userId', response.data._id);
+          // localStorage.setItem('userId', response.data.user);
           localStorage.setItem(
             'userIdExpiration',
             expirationTime.toISOString()
           );
-          localStorage.setItem('name', response.data.name);
-          this.ngxLoader.stop();
+          const user = JSON.stringify(response.data.user)
+          localStorage.setItem('name', user);
           this.snackBar.open(response.message, 'Dismiss', commonSnackBarConfig);
           this.dialogRef.close();
           this.authService.isSignedIn = true;

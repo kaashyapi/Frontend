@@ -43,18 +43,6 @@
                     <mat-error class="error"
                         *ngIf="signUpForm.controls['email'].invalid">{{getErrorMessageS('email')}}</mat-error>
                 </mat-form-field><br />
-                <!-- <mat-form-field appearance="fill" class="form-field">
-                    <mat-label>Password</mat-label>
-                    <input matInput type="password" formControlName="password" required>
-                    <mat-error class="error"
-                        *ngIf="signUpForm.controls['password'].invalid">{{getErrorMessageS('password')}}</mat-error>
-                </mat-form-field><br />
-                <mat-form-field appearance="fill" class="form-field">
-                    <mat-label>Confirm Password</mat-label>
-                    <input matInput type="password" formControlName="confirmPassword" required>
-                    <mat-error class="error"
-                        *ngIf="signUpForm.controls['confirmPassword'].invalid">{{getErrorMessageS('confirmPassword')}}</mat-error>
-                </mat-form-field><br /> -->
                 <button mat-raised-button color="primary">Sign Up</button>
             </form>
         </mat-tab>

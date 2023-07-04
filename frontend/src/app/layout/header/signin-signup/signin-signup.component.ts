@@ -50,7 +50,7 @@ export class SigninSignupComponent implements OnInit {
 
   createSignInForm(): void {
     this.signInForm = this.fb.group({
-      emailId: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -58,9 +58,6 @@ export class SigninSignupComponent implements OnInit {
   createSignUpForm(): void {
     const regex = new RegExp(
       "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
-    );
-    const pswd = new RegExp(
-      '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$'
     );
     this.signUpForm = this.fb.group(
       {
@@ -79,17 +76,7 @@ export class SigninSignupComponent implements OnInit {
           ],
         ],
         email: ['', [Validators.required, Validators.pattern(regex)]],
-        // password: [
-        //   '',
-        //   [
-        //     Validators.required,
-        //     Validators.pattern(pswd),
-        //     Validators.minLength(6),
-        //   ],
-        // ],
-        // confirmPassword: ['', [Validators.required]],
       }
-      // { validator: this.checkPasswords }
     );
   }
   checkPasswords(group: FormGroup) {
@@ -134,7 +121,7 @@ export class SigninSignupComponent implements OnInit {
   }
 
   onSignUp(): void {
-    // if (this.signUpForm.valid) {
+    if (this.signUpForm.valid) {
       this.ngxLoader.start();
       this.authService.signUp(this.signUpForm.value).subscribe(
         (response) => {
@@ -155,9 +142,9 @@ export class SigninSignupComponent implements OnInit {
           );
         }
       );
-    // } else {
-    //   return this.signUpForm.markAllAsTouched();
-    // }
+    } else {
+      return this.signUpForm.markAllAsTouched();
+    }
   }
 
   onForgotPassword() {

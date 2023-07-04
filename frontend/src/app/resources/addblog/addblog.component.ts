@@ -16,7 +16,7 @@ import { commonSnackBarConfig } from 'src/app/service/snackbar-config.service';
 })
 export class AddblogComponent {
 
-  userId = localStorage.getItem('userId');
+  userId:any = localStorage.getItem('userId');
   public Editor = ClassicEditor;
   AddBlogForm = new FormGroup({
     title: new FormControl('', [
@@ -36,6 +36,7 @@ export class AddblogComponent {
     blogContent: '',
     createdDate: new Date(),
     updatedDate: new Date(),
+    userId :''
   };
   public title: any;
   public content: any;
@@ -60,7 +61,11 @@ export class AddblogComponent {
   createBlogData() {
     this.blogs.blogTitle = this.title;
     this.blogs.blogContent = this.content;
-    // this.userId;
+    this.userId;
+    this.blogs.userId = this.userId
+    console.log(this.userId)
+    console.log(this.blogs);
+    
     this.createdDate = new Date();
     this.blogService.createBlog(this.blogs).subscribe(
       (res) => {

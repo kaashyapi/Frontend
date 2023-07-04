@@ -20,4 +20,5 @@ export interface Blog {
   blogContent: string;
   createdDate: Date;
   updatedDate: Date;
+  userId: string;
 }

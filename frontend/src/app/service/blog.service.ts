@@ -42,7 +42,7 @@ export class BlogService {
 
   //post a blog
   createBlog(blog: Blog): Observable<Blog> {
-    return this.http.post<Blog>(`${this.baseUrl}/users/addblog`, blog).pipe(
+    return this.http.post<Blog>(`${this.baseUrl}/users/addblog`, blog ).pipe(
       map((response: any) => {
         return response;
       })

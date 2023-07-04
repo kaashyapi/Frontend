@@ -37,6 +37,7 @@ export class UpdateBlogComponent {
     blogContent: '',
     createdDate: new Date(), 
    updatedDate: new Date(),
+   userId : ''
   };
 
 

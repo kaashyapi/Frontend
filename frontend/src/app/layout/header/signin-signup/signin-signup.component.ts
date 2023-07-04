@@ -78,7 +78,7 @@ export class SigninSignupComponent implements OnInit {
       this.authService.signIn(this.signInForm.value).subscribe(
         (response) => {
           this.ngxLoader.stop();
-          localStorage.setItem('name', response.data.name);
+          localStorage.setItem('name', response.user.name);
           const expirationTime = new Date(Date.now() + 12 * 60 * 60 * 1000);
           localStorage.setItem(
             'userIdExpiration',

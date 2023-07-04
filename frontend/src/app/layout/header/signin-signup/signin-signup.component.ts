@@ -7,7 +7,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { commonSnackBarConfig } from 'src/app/service/snackbar-config.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
-import { log } from 'console';
 @Component({
   selector: 'app-signin-signup',
   templateUrl: './signin-signup.component.html',
@@ -79,19 +78,14 @@ export class SigninSignupComponent implements OnInit {
       this.authService.signIn(this.signInForm.value).subscribe(
         (response) => {
           this.ngxLoader.stop();
+          // const userId = response.
           const expirationTime = new Date(Date.now() + 12 * 60 * 60 * 1000);
-          console.log('data', response.data);
-          console.log('user', response.data.user);
-          console.log('res.user', response.user);
-          console.log('userId', response.data.user.userId);
-
-          localStorage.setItem('name', response.data.name);
           localStorage.setItem('userId', response.data.user.userId);
           localStorage.setItem(
             'userIdExpiration',
             expirationTime.toISOString()
           );
-
+          localStorage.setItem('name', response.data.user.name);
           this.snackBar.open(response.message, 'Dismiss', commonSnackBarConfig);
           this.dialogRef.close();
           this.authService.isSignedIn = true;

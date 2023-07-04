@@ -1,4 +1,4 @@
-<div class="back" *ngIf="userRole !== 'admin'">
+<!-- <div class="back" *ngIf="userRole !== 'admin'">
   <button
     mat-raised-button
     class="back-button"
@@ -45,4 +45,31 @@
 </div>
 <div class="content" [innerHTML]="blogs.content">
   {{ blogs.content }}
+</div> -->
+
+
+<div class="back" *ngIf="userRole !== 'admin'">
+  <button mat-raised-button class="back-button" routerLink="/resources" routerLinkActive="active" color="primary">
+    <mat-icon style="font-size: 20px; align-items: center">arrow_back</mat-icon>
+  </button>
+</div>
+
+<div class="back" *ngIf="userRole === 'admin'">
+  <button mat-raised-button class="back-button" routerLink="/admin/manageresourcs" routerLinkActive="active"
+    color="primary">
+    <mat-icon style="font-size: 20px; align-items: center">arrow_back</mat-icon>
+  </button>
+</div>
+<div class="title-container">
+  <span [innerHTML]="blog.blogTitle" class="title">
+  </span>
+  <!-- <span class="avatar">
+    <ngx-avatars [name]="blog.userId.firstName + ' ' + blog.userId.lastName" size="25" matSuffix></ngx-avatars>
+  </span> -->
+  <!-- {{ blog.userId.firstName | titlecase }}
+  {{ blog.userId.lastName | titlecase }} -->
+  {{ blog.createdDate | date: 'MMM d, y' }}
+</div>
+
+<div class="content" [innerHTML]="blog.blogContent">
 </div>

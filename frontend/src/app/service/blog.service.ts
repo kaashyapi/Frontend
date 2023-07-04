@@ -10,18 +10,20 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root',
 })
 export class BlogService {
-  private baseUrl = environment.baseUrl;
+  private baseUrl = 'https://uy824flgy9.execute-api.ap-south-1.amazonaws.com/Dev';
 
   constructor(private http: HttpClient) {}
 
  //get all documents
+ //get all documents
  getAllBlogs(pageNumber: number, pageSize: number): Observable<Blog[]> {
-  return this.http.get<Blog[]>(`${this.baseUrl}/users/blog?pageNumber=${pageNumber}&pageSize=${pageSize}`).pipe(
+  return this.http.get<any>(`${this.baseUrl}/users/blogs?pageNumber=${pageNumber}&pageSize=${pageSize}`).pipe(
     map((response: any) => {
       return response;
     })
   );
 }
+
   getAllAdminBlogs(pageNumber: number, pageSize: number): Observable<Blog[]> {
     return this.http.get<Blog[]>(`${this.baseUrl}/admin/blog?pageNumber=${pageNumber}&pageSize=${pageSize}`).pipe(
       map((response: any) => {
@@ -32,7 +34,7 @@ export class BlogService {
 
   //post a blog
   createBlog(blog: Blog): Observable<Blog> {
-    return this.http.post<Blog>(`${this.baseUrl}/users/blog`, blog).pipe(
+    return this.http.post<Blog>(`${this.baseUrl}/users/addblog`, blog).pipe(
       map((response: any) => {
         return response;
       })
@@ -40,17 +42,17 @@ export class BlogService {
   }
 
   // get a specific blog
-  getBlogById(id: string): Observable<SpecificBlog> {
-    return this.http.get<SpecificBlog>(`${this.baseUrl}/users/blog/` + id).pipe(
+  getBlogById(blogId: string): Observable<SpecificBlog> {
+    return this.http.get<SpecificBlog>(`${this.baseUrl}/users/blogs/` + blogId).pipe(
       map((response: any) => {
-        return response.data;
+        return response;
       })
     );
   }
 
   //delete a specific blog
   deleteBlogById(id:string):Observable<Blog> {
-    return this.http.delete<Blog>(`${this.baseUrl}/users/blog/` + id).pipe(
+    return this.http.delete<Blog>(`${this.baseUrl}/users/blogs/` + id).pipe(
       map((response: any) => {
         return response.data;
       })

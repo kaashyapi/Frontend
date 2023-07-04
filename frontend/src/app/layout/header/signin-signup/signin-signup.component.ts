@@ -85,7 +85,7 @@ export class SigninSignupComponent implements OnInit {
             'userIdExpiration',
             expirationTime.toISOString()
           );
-          localStorage.setItem('name', response.data.user);
+          localStorage.setItem('name', response.data);
           this.snackBar.open(response.message, 'Dismiss', commonSnackBarConfig);
           this.dialogRef.close();
           this.authService.isSignedIn = true;

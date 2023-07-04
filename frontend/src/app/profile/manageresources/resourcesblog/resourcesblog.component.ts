@@ -33,7 +33,8 @@ export class ResourcesblogComponent {
       blogTitle: '',
       blogContent: '',
       createdDate: new Date(),
-      updatedDate: new Date()
+      updatedDate: new Date(),
+      userId : ''
     };
 
   

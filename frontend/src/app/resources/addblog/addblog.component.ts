@@ -63,6 +63,9 @@ export class AddblogComponent {
     this.blogs.blogTitle = this.title;
     this.blogs.blogContent = this.content;
     this.blogs.userId = this.userId;
+    console.log(this.userId)
+    console.log(this.blogs);
+    
     this.createdDate = new Date();
     this.blogService.createBlog(this.blogs).subscribe(
       (res) => {

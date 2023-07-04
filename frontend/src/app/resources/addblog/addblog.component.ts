@@ -62,6 +62,7 @@ export class AddblogComponent {
     this.blogs.blogTitle = this.title;
     this.blogs.blogContent = this.content;
     this.userId;
+    this.blogs.userId = this.userId
     console.log(this.userId)
     console.log(this.blogs);
     

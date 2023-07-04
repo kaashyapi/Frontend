@@ -85,7 +85,7 @@ export class SigninSignupComponent implements OnInit {
             'userIdExpiration',
             expirationTime.toISOString()
           );
-          const user = JSON.stringify(response.data.user)
+          const user = JSON.stringify(response.data.user.name + response.data.user.userId)
           localStorage.setItem('name', user);
           this.snackBar.open(response.message, 'Dismiss', commonSnackBarConfig);
           this.dialogRef.close();

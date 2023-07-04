@@ -239,9 +239,9 @@ export class QuestioncardComponent implements OnInit, AfterViewInit {
         );
         console.log('populer tag: ', this.popularTags);
       },
-      error: (err) => {
-        alert('Error while fetching the data');
-      },
+      // error: (err) => {
+      //   alert('Error while fetching the data');
+      // },
     });
   }
 

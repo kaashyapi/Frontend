@@ -53,7 +53,6 @@ export class AddblogComponent {
   ngOnInit() {
     this.title = this.blogs.blogTitle;
     this.content = this.blogs.blogContent;
-    this.userId = this.blogs.userId
   }
 
   get valide() {
@@ -62,7 +61,7 @@ export class AddblogComponent {
   createBlogData() {
     this.blogs.blogTitle = this.title;
     this.blogs.blogContent = this.content;
-    this.blogs.userId = this.userId;
+    this.userId;
     console.log(this.userId)
     console.log(this.blogs);
     

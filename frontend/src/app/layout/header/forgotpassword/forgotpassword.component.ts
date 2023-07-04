@@ -32,7 +32,7 @@ export class ForgotpasswordComponent implements OnInit {
   }
   createForgotPassword(): void {
     this.forgotPasswordForm = this.fb.group({
-      emailId: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
     });
   }
   onForgotPassword() {

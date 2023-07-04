@@ -79,13 +79,12 @@ export class SigninSignupComponent implements OnInit {
         (response) => {
           this.ngxLoader.stop();
           localStorage.setItem('name', response.user.name);
+          localStorage.setItem('userId', response.user.userId);
           const expirationTime = new Date(Date.now() + 12 * 60 * 60 * 1000);
           localStorage.setItem(
             'userIdExpiration',
             expirationTime.toISOString()
           );
-          localStorage.setItem('userId', response.data.userId);
-
           this.snackBar.open(response.message, 'Dismiss', commonSnackBarConfig);
           this.dialogRef.close();
           this.authService.isSignedIn = true;

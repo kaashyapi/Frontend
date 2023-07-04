@@ -78,15 +78,14 @@ export class SigninSignupComponent implements OnInit {
       this.authService.signIn(this.signInForm.value).subscribe(
         (response) => {
           this.ngxLoader.stop();
-          // const userId = response.
           const expirationTime = new Date(Date.now() + 12 * 60 * 60 * 1000);
-          // localStorage.setItem('userId', response.data.user);
+
           localStorage.setItem(
             'userIdExpiration',
             expirationTime.toISOString()
           );
-          const user = JSON.stringify(response.data.user.name + response.data.user.userId)
-          localStorage.setItem('name', user);
+          localStorage.setItem('name', response.data.user.name);
+          localStorage.setItem('userId', response.data.user.userId);
           this.snackBar.open(response.message, 'Dismiss', commonSnackBarConfig);
           this.dialogRef.close();
           this.authService.isSignedIn = true;

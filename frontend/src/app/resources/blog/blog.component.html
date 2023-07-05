@@ -52,7 +52,18 @@
   <mat-card *ngFor="let blog of allblogs" class="blogbox" style="width: 350px">
     <mat-card-header>
       <div class="userdetail">
-        <!-- User details -->
+        <div style="margin-right: 6px">
+          <div class="img">
+            <ngx-avatars
+              [name]="blog.name"
+              size="30"
+              matSuffix
+            ></ngx-avatars>
+          </div>
+        </div>
+        <div class="username">
+          {{ blog.name }}
+        </div>
       </div>
     </mat-card-header>
     <mat-card-content>

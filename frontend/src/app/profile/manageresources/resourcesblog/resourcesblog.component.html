@@ -3,7 +3,7 @@
     <mat-icon style="font-size: 20px; align-items: center">arrow_back</mat-icon>
   </button>
 </div>
-<div *ngIf="blog.length > 0">
+<div >
   <div style="display: flex; flex-wrap: wrap; justify-content: center">
     <mat-card *ngFor="let blogs of blog" class="blogbox" style="width: 350px">
       <mat-card-header>
@@ -74,7 +74,7 @@
     >
   </div>
 </div>
-<div class="noBlogs" *ngIf="blog.length === 0">
+<!-- <div class="noBlogs" *ngIf="blog.length === 0">
   <div>
     <p>You have not added any Blog!!<br />Add New Blog!!</p>
     <button routerLink="/resources" mat-raised-button color="primary">
@@ -82,4 +82,4 @@
       Add Blog
     </button>
   </div>
-</div>
+</div> -->

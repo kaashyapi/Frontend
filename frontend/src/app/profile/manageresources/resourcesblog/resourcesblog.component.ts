@@ -18,7 +18,7 @@ export interface tags {
 export class ResourcesblogComponent {
   blog: any[] = [];
   updateD: any;
-  allblogs: any;
+  allblogs: Blog[] = [];
 
   constructor(
     private router: Router,
@@ -44,12 +44,15 @@ export class ResourcesblogComponent {
     const userId: any = localStorage.getItem('userId');
     console.log(userId);    
     this.profileService.getUserBlogById(userId).subscribe(
-      (res: any) => {
-        this.blog = res.body.blogs;
-        console.log(this.blog);
-        console.log(res);
-        
-        this.ngxLoader.stop();
+      (response: any) => {
+        if (response && response.body) {
+          const responseBody = JSON.parse(response.body);
+          if (responseBody && Array.isArray(responseBody.blogs)) {
+            this.allblogs = responseBody.blogs;
+          } else {
+            console.log('Invalid response format:', responseBody);
+          }
+        }
       },
       (err) => {
         console.log(err);

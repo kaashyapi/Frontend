@@ -76,6 +76,8 @@ export class AddblogComponent {
         console.log(res);
         this.allblogs = [];
         this.ngOnInit();
+        console.log("all blogs :", this.allblogs);
+        
         this.snackBar.open(
           "Your blog will be posted after Admin's approval!!",
           'Dismiss',

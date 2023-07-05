@@ -41,13 +41,11 @@ export class ResourcesblogComponent {
 
   ngOnInit(): void {
     this.ngxLoader.start();
-    const id: any = localStorage.getItem('userId');
-    console.log(id);
-    console.log(this.blog);
-    
-    this.profileService.getUserBlogById(id).subscribe(
+    const userId: any = localStorage.getItem('userId');
+    console.log(userId);    
+    this.profileService.getUserBlogById(userId).subscribe(
       (res: any) => {
-        this.blog = res.data;
+        this.blog = res;
         this.ngxLoader.stop();
       },
       (err) => {

@@ -49,6 +49,11 @@ export class ResourcesblogComponent {
           const responseBody = JSON.parse(response.body);
           if (responseBody && Array.isArray(responseBody.blogs)) {
             this.allblogs = responseBody.blogs;
+            console.log("all blogs:",this.allblogs);
+            console.log("resbody:",responseBody);
+            console.log("res:",response);
+            
+            
           } else {
             console.log('Invalid response format:', responseBody);
           }

@@ -5,7 +5,7 @@
 </div>
 <div >
   <div style="display: flex; flex-wrap: wrap; justify-content: center">
-    <mat-card *ngFor="let blogs of blog" class="blogbox" style="width: 350px">
+    <mat-card *ngFor="let blog of allblogs" class="blogbox" style="width: 350px">
       <mat-card-header>
         <div class="userdetail">
           <div style="margin-right: 6px">
@@ -25,24 +25,24 @@
       </mat-card-header>
       <mat-card-header>
     
-        <div class="createdAt"*ngIf="blogs.createdDate">
+        <div class="createdAt"*ngIf="blog.createdDate">
           <span style="font-weight: 500"> Created </span>
-          {{ blogs.createdDate | date : "d MMM, yy" }}
+          {{ blog.createdDate | date : "d MMM, yy" }}
         </div>
-        <div class="updatedAt"*ngIf="blogs.updatedDate">
+        <div class="updatedAt"*ngIf="blog.updatedDate">
           <span style="font-weight: 500">Updated</span>
-          {{ blogs.updatedDate | date : "d MMM, yy" }}
+          {{ blog.updatedDate | date : "d MMM, yy" }}
         </div>
 
       </mat-card-header>
   
       <mat-card-content>
-        <mat-card-title class="blog" [innerHTML]="blogs.title">
-          {{ blogs.blogTitle }}
+        <mat-card-title class="blog" [innerHTML]="blog.blogTitle">
+          {{ blog.blogTitle }}
         </mat-card-title>
         <div class="card-content">
-          <div class="blog-content" [innerHTML]="blogs.content">
-            {{ blogs.content }}
+          <div class="blog-content" [innerHTML]="blog.blogContent">
+            {{ blog.blogContent }}
           </div>
         </div>
         <mat-card-actions>
@@ -60,12 +60,12 @@
           <mat-icon
             style="cursor: pointer; padding-right: 10px"
             matTooltip="Update Blog"
-            [routerLink]="['/update-blog', blogs._id]"
+            [routerLink]="['/update-blog', blog.blogId]"
             >edit</mat-icon
           >
           <mat-icon
             style="cursor: pointer"
-            (click)="deleteBlogDialog(blogs._id)"
+            (click)="deleteBlogDialog(blog.blogId)"
             matTooltip="Delete Blog"
             >delete</mat-icon
           >

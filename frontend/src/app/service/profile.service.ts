@@ -35,7 +35,7 @@ export class ProfileService {
         })
       );
   }
-
+// get user blogs by userId
   getUserBlogById(userId: string): Observable<Blog> {
     return this.http.get<Blog>(`${this.baseUrl}/user/blogs/${userId}`);
   }

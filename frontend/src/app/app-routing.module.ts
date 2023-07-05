@@ -90,7 +90,7 @@ const routes: Routes = [
     component: SpecificDocumentComponent,
   },
   {
-    path: 'forgotpassword/reset-password/:id',
+    path: 'forgotpassword/reset-password',
     component: ResetPasswordComponent,
   },
   {

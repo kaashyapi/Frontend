@@ -71,7 +71,7 @@ updatedDate: Date = new Date()
 
   getBlogById(blog: Blog) {
     this.route.paramMap.subscribe((params: any) => {
-      const bl: string = params.get('_id');
+      const bl: string = params.get('blogId');
       this.profileService.getBlogById(bl!).subscribe(
         (res) => {
           this.blog = res;
@@ -98,11 +98,9 @@ updatedDate: Date = new Date()
       (res) => {
         this.editBlog(this.blog);
         this.getBlogById(this.blog);
-        // console.log(res.updatedDate);
         console.log(res)
 
         this.router.navigate(['/manageresources']);
-        // window.location.reload()
       },
       (err) => {
         console.log(err);

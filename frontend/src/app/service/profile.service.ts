@@ -93,7 +93,7 @@ export class ProfileService {
 
   updateBlogs(blog: Blog): Observable<Blog> {
     return this.http
-      .put<Blog>(`${this.baseUrl}/users/blogs/` + blog.blogId, blog)
+      .put<Blog>(`${this.baseUrl}/users/updateblog/` + blog.blogId, blog)
       .pipe(
         map((response: any) => {
           return response;

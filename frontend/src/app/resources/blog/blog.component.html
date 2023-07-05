@@ -66,6 +66,12 @@
         </div>
       </div>
     </mat-card-header>
+    <mat-card-header>
+      <div class="createdAt"*ngIf="blog.createdDate">
+        <span style="font-weight: 500"> Created </span>
+        {{ blog.createdDate | date : "d MMM, yy" }}
+      </div>
+    </mat-card-header>
     <mat-card-content>
       <mat-card-title class="blog" [innerHTML]="blog.blogTitle">{{ blog.blogTitle }}</mat-card-title>
       <div class="card-content">

@@ -42,6 +42,9 @@ export class ResourcesblogComponent {
   ngOnInit(): void {
     this.ngxLoader.start();
     const id: any = localStorage.getItem('userId');
+    console.log(id);
+    console.log(this.blog);
+    
     this.profileService.getUserBlogById(id).subscribe(
       (res: any) => {
         this.blog = res.data;

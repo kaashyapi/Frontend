@@ -83,18 +83,7 @@ updatedDate: Date = new Date()
     });
   }
 
-  // getAllBlogs() {
-  //   this.blogService.getAllBlogs().subscribe(
-  //     (res) => {
-  //       this.allblogs = res;
-  //       console.log(res);
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //     }
-  //   );
-  // }
-
+  
   editBlog(blog: Blog) {
     this.getBlogById(blog);
     this.title = blog.blogTitle;

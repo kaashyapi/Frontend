@@ -1,53 +1,3 @@
-<!-- <div class="back" *ngIf="userRole !== 'admin'">
-  <button
-    mat-raised-button
-    class="back-button"
-    routerLink="/resources"
-    routerLinkActive="active"
-    color="primary"
-  >
-    <mat-icon style="font-size: 20px; align-items: center">arrow_back</mat-icon>
-  </button>
-</div>
-
-<div class="back" *ngIf="userRole === 'admin'">
-  <button
-    mat-raised-button
-    class="back-button"
-    routerLink="/admin/manageresourcs"
-    routerLinkActive="active"
-    color="primary"
-  >
-    <mat-icon style="font-size: 20px; align-items: center">arrow_back</mat-icon>
-  </button>
-</div>
-<div class="title-container">
-  <span [innerHTML]="blogs.title" class="title"> {{ blogs.title }} </span><br />
-</div>
-<div class="userinfo">
-  <div class="image">
-    <ngx-avatars
-      [name]="blogs.userId.firstName + ' ' + blogs.userId.lastName"
-      size="25"
-      matSuffix
-    >
-    </ngx-avatars>
-  </div>
-  <div class="user-date">
-    <div class="username">
-      {{ blogs.userId.firstName | titlecase }}
-      {{ blogs.userId.lastName | titlecase }}
-    </div>
-    <div class="date">
-      {{ blogs.createdDate | date : "MMM d, y" }}
-    </div>
-  </div>
-</div>
-<div class="content" [innerHTML]="blogs.content">
-  {{ blogs.content }}
-</div> -->
-
-
 <div class="back" *ngIf="userRole !== 'admin'">
   <button mat-raised-button class="back-button" routerLink="/resources" routerLinkActive="active" color="primary">
     <mat-icon style="font-size: 20px; align-items: center">arrow_back</mat-icon>
@@ -63,11 +13,10 @@
 <div class="title-container">
   <span [innerHTML]="blog.blogTitle" class="title">
   </span>
-  <!-- <span class="avatar">
-    <ngx-avatars [name]="blog.userId.firstName + ' ' + blog.userId.lastName" size="25" matSuffix></ngx-avatars>
-  </span> -->
-  <!-- {{ blog.userId.firstName | titlecase }}
-  {{ blog.userId.lastName | titlecase }} -->
+  <span class="avatar">
+    <ngx-avatars [name]="blog.name" size="25" matSuffix></ngx-avatars>
+  </span>
+  {{ blog.name| titlecase }}
   {{ blog.createdDate | date: 'MMM d, y' }}
 </div>
 

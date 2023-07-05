@@ -45,7 +45,7 @@ export class ResourcesblogComponent {
     console.log(userId);    
     this.profileService.getUserBlogById(userId).subscribe(
       (res: any) => {
-        this.blog = res.data;
+        this.blog = res.blogs;
         this.ngxLoader.stop();
       },
       (err) => {

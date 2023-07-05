@@ -41,19 +41,14 @@ export class ResourcesblogComponent {
 
   ngOnInit(): void {
     this.ngxLoader.start();
-    const userId: any = localStorage.getItem('userId');
-    console.log(userId);    
+    const userId: any = localStorage.getItem('userId');    
     this.profileService.getUserBlogById(userId).subscribe(
       (response: any) => {
         if (response && response.body) {
           const responseBody = JSON.parse(response.body);
           if (responseBody && Array.isArray(responseBody.blogs)) {
             this.allblogs = responseBody.blogs;
-            console.log("all blogs:",this.allblogs);
-            console.log("resbody:",responseBody);
-            console.log("res:",response);
-            
-            
+            this.ngxLoader.stop();
           } else {
             console.log('Invalid response format:', responseBody);
           }

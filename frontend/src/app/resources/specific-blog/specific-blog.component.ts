@@ -81,6 +81,7 @@ export class SpecificBlogComponent implements OnInit {
     blogContent: '',
     createdDate: '',
     updatedDate: '',
+    name:''
   };
 
   userRole: string;
@@ -106,6 +107,7 @@ export class SpecificBlogComponent implements OnInit {
             blogContent: blogData.blogContent.S,
             createdDate: blogData.createdDate ? blogData.createdDate.S : '', 
             updatedDate: blogData.updatedDate ? blogData.updatedDate.S : '',
+            name : blogData.name.S
           };
           console.log(this.blog);
         },

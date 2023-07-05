@@ -21,4 +21,5 @@ export interface Blog {
   createdDate: Date;
   updatedDate: Date;
   userId: string;
+  name:string;
 }

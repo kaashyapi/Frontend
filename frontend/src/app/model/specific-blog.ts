@@ -17,4 +17,5 @@ export interface SpecificBlog {
   blogContent: string;
   createdDate: string;
   updatedDate: string;
+  name:string
 }

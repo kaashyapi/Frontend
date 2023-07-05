@@ -34,7 +34,8 @@ export class ResourcesblogComponent {
       blogContent: '',
       createdDate: new Date(),
       updatedDate: new Date(),
-      userId : ''
+      userId : '',
+      name:''
     };
 
   

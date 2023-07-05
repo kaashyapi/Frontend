@@ -21,7 +21,8 @@ export class AdminManageResourcesComponent {
     blogContent: '',
     createdDate: new Date(),
     updatedDate: new Date(),
-    userId : ''
+    userId : '',
+    name:''
   };
 
   docs: Document = {

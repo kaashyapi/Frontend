@@ -9,18 +9,17 @@
       <mat-card-header>
         <div class="userdetail">
           <div style="margin-right: 6px">
-            <!-- <div class="img">
+            <div class="img">
               <ngx-avatars
-                [name]="blogs.userId.firstName + ' ' + blogs.userId.lastName"
+                [name]="blog.name"
                 size="30"
                 matSuffix
               ></ngx-avatars>
-            </div> -->
+            </div>
           </div>
-          <!-- <div class="username">
-            {{ blogs.userId?.firstName }}
-            {{ blogs.userId?.lastName }}
-          </div> -->
+          <div class="username">
+            {{ blog.name }}
+          </div>
         </div>
       </mat-card-header>
       <mat-card-header>

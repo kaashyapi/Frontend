@@ -61,7 +61,7 @@ export class ForumService {
 
   searchQuestion(query: any) {
     return this.http.get<any>(
-      ' https://qnirfhjlq3.execute-api.ap-south-1.amazonaws.com/dev/search?question=' +
+      ' https://uy824flgy9.execute-api.ap-south-1.amazonaws.com/Dev/search?question=' +
         query
     );
   }

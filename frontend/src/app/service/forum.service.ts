@@ -52,26 +52,21 @@ export class ForumService {
   }
 
   upvotesAnswer(id: any, data: any) {
-    return this.http.post<any>(
-      `${this.baseUrl}/users/upvote/${id}`,
-      data
-    );
+    return this.http.post<any>(`${this.baseUrl}/users/upvote/${id}`, data);
   }
 
   downvotesAnswer(id: any, data: any) {
-    return this.http.post<any>(
-      `${this.baseUrl}/users/downvote/${id}`,
-      data
-    );
+    return this.http.post<any>(`${this.baseUrl}/users/downvote/${id}`, data);
   }
 
   searchQuestion(query: any) {
     return this.http.get<any>(
-      `${this.baseUrl}/users/search?question=` + query
+      ' https://qnirfhjlq3.execute-api.ap-south-1.amazonaws.com/dev/search?question=' +
+        query
     );
   }
 
-  getBlogTitle(){
+  getBlogTitle() {
     return this.http.get<any>(`${this.baseUrl}/users/blogtitle`);
   }
 }

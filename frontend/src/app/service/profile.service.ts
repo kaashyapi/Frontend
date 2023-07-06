@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import { Question } from '../model/question';
 import { Blog } from '../model/blog';
 import { environment } from 'src/environments/environment.prod';
+import { SpecificBlog } from '../model/specific-blog';
 
 @Injectable({
   providedIn: 'root',
@@ -40,12 +41,14 @@ export class ProfileService {
     return this.http.get<Blog>(`${this.baseUrl}/user/blogs/${userId}`);
   }
 
-  getBlogById(id: string): Observable<Blog> {
-    return this.http.get<Blog>(`${this.baseUrl}/users/blog/` + id).pipe(
-      map((response: any) => {
-        return response.data;
-      })
-    );
+  getBlogById(blogId: string): Observable<Blog> {
+    return this.http
+      .get<Blog>(`${this.baseUrl}/users/blogs/` + blogId)
+      .pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
   }
 
   getmanageBookmarkById(id: string): Observable<any> {

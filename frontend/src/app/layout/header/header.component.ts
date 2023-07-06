@@ -90,16 +90,19 @@ export class HeaderComponent implements OnInit {
     }
     this.forumService.searchQuestion(this.question).subscribe({
       next: (res) => {
-        this.searchQue = res.data;
-        console.log('Search Question: ', this.searchQue);
+        this.searchQue = res;
+        console.log('Search Question:', this.searchQue);
       },
       error: (err) => {
-        console.log('Error while sending the data ' + err);
+        console.log('Error:', err);
+        if (err.status === 404) {
+          console.log('Question not found');
+        }
+        // this.searchQue = [];
       },
     });
   }
-
-  selectResult(id: any, result:any) {
+  selectResult(id: any, result: any) {
     this.question = result.question;
     this.searchQue = [];
     this.router.navigate(['queanspage', id]);

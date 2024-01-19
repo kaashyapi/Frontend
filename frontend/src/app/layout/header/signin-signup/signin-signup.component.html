@@ -5,9 +5,9 @@
             <form [formGroup]="signInForm" (ngSubmit)="onSignIn()">
                 <mat-form-field appearance="fill" style="margin-top: 10px;" class="form-field">
                     <mat-label>Email</mat-label>
-                    <input matInput type="email" formControlName="email" required>
+                    <input matInput type="email" formControlName="emailId" required>
                     <mat-error class="error"
-                        *ngIf="signInForm.controls['email'].invalid">{{getErrorMessage('email')}}</mat-error>
+                        *ngIf="signInForm.controls['emailId'].invalid">{{getErrorMessage('emailId')}}</mat-error>
                 </mat-form-field><br />
                 <mat-form-field appearance="fill" class="form-field">
                     <mat-label>Password</mat-label>
@@ -39,9 +39,21 @@
                 </mat-form-field><br />
                 <mat-form-field appearance="fill" class="form-field">
                     <mat-label>Email</mat-label>
-                    <input matInput type="email" formControlName="email" required>
+                    <input matInput type="email" formControlName="emailId" required>
                     <mat-error class="error"
-                        *ngIf="signUpForm.controls['email'].invalid">{{getErrorMessageS('email')}}</mat-error>
+                        *ngIf="signUpForm.controls['emailId'].invalid">{{getErrorMessageS('emailId')}}</mat-error>
+                </mat-form-field><br />
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" required>
+                    <mat-error class="error"
+                        *ngIf="signUpForm.controls['password'].invalid">{{getErrorMessageS('password')}}</mat-error>
+                </mat-form-field><br />
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput type="password" formControlName="confirmPassword" required>
+                    <mat-error class="error"
+                        *ngIf="signUpForm.controls['confirmPassword'].invalid">{{getErrorMessageS('confirmPassword')}}</mat-error>
                 </mat-form-field><br />
                 <button mat-raised-button color="primary">Sign Up</button>
             </form>

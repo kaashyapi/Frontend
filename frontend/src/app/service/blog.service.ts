@@ -19,7 +19,7 @@ export class BlogService {
   getAllBlogs(pageNumber: number, pageSize: number): Observable<Blog[]> {
     return this.http
       .get<any>(
-        `${this.baseUrl}/users/blogs?pageNumber=${pageNumber}&pageSize=${pageSize}`
+        `${this.baseUrl}/users/blog?pageNumber=${pageNumber}&pageSize=${pageSize}`
       )
       .pipe(
         map((response: any) => {
